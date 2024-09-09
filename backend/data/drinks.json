@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dreher",
+    "price": 349,
+    "desc": "dreher beer",
+    "abv": 5
+  },
+  {
+    "name": "Kőbányai",
+    "price": 329,
+    "desc": "kőbányai beer",
+    "abv": 4
+  },
+  {
+    "name": "Pálinka",
+    "price": 3999,
+    "desc": "hungarian pálinka",
+    "abv": 45
+  },
+  {
+    "name": "Whiskey",
+    "price": 4999,
+    "desc": "scotch",
+    "abv": 40
+  }
+]
