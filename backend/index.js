@@ -44,7 +44,7 @@ app.post('/data/new', (req, res) => {
           console.log("error at writing file", err);
           res.status(500).json("error at writing file");
         } else {
-          res.json(req.body);
+          res.json("success");
         }
       })
     }
