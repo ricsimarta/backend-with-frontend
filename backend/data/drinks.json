@@ -22,5 +22,11 @@
     "price": 4999,
     "desc": "scotch",
     "abv": 40
+  },
+  {
+    "name": "Tequila",
+    "price": 6999,
+    "desc": "disgusting",
+    "abv": 45
   }
 ]
