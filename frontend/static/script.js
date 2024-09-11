@@ -22,6 +22,8 @@ const newDrinkElement = () => `
   </form>
 `;
 
+const getInputValue = (name) => document.querySelector(`input[name="drink-${name}"]`).value
+
 fetch("/data")
   .then(res => res.json())
   .then(data => {
@@ -42,10 +44,10 @@ fetch("/data")
       console.log("event trigger");
 
       const newDrinkData = {
-        name: formElement.querySelector('input[name="drink-name"]').value,
-        desc: formElement.querySelector('input[name="drink-abv"]').value,
-        abv: formElement.querySelector('input[name="drink-desc"]').value,
-        price: formElement.querySelector('input[name="drink-price"]').value
+        name: getInputValue("name"),
+        desc: getInputValue("desc"),
+        abv: Number(getInputValue("abv")),
+        price: Number(getInputValue("price"))
       }
 
       console.log(newDrinkData);
@@ -58,6 +60,12 @@ fetch("/data")
         body: JSON.stringify(newDrinkData)
       })
         .then(res => res.json())
-        .then(resJson => console.log(resJson))
+        .then(resJson => {
+          if (resJson === "success") {
+            drinksHtml += drinkCard(newDrinkData);
+            const drinksContainerElement = document.querySelector("div.drinks");
+            drinksContainerElement.innerHTML = drinksHtml;
+          }
+        })
     })
 })

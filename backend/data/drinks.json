@@ -28,5 +28,35 @@
     "price": 6999,
     "desc": "disgusting",
     "abv": 45
+  },
+  {
+    "name": "Red Wine",
+    "abv": 12,
+    "desc": "placeholder",
+    "price": 1239
+  },
+  {
+    "name": "White Wine",
+    "abv": 11.2,
+    "desc": "Irsai Oliver",
+    "price": 1599
+  },
+  {
+    "name": "Water",
+    "desc": "watery",
+    "abv": 0,
+    "price": 1
+  },
+  {
+    "name": "Cola",
+    "desc": "coca",
+    "abv": 0,
+    "price": 599
+  },
+  {
+    "name": "Codecool",
+    "desc": "very cool very code",
+    "abv": 99,
+    "price": 500
   }
 ]
