@@ -3,60 +3,76 @@
     "name": "Dreher",
     "price": 349,
     "desc": "dreher beer",
-    "abv": 5
+    "abv": 5,
+    "id": "9613947523"
   },
   {
     "name": "Kőbányai",
     "price": 329,
     "desc": "kőbányai beer",
-    "abv": 4
+    "abv": 4,
+    "id": "4887425459"
   },
   {
     "name": "Pálinka",
     "price": 3999,
     "desc": "hungarian pálinka",
-    "abv": 45
+    "abv": 45,
+    "id": "1679568486"
   },
   {
     "name": "Whiskey",
     "price": 4999,
     "desc": "scotch",
-    "abv": 40
+    "abv": 40,
+    "id": "2740838229"
   },
   {
     "name": "Tequila",
     "price": 6999,
     "desc": "disgusting",
-    "abv": 45
+    "abv": 45,
+    "id": "5070044452"
   },
   {
     "name": "Red Wine",
     "abv": 12,
     "desc": "placeholder",
-    "price": 1239
+    "price": 1239,
+    "id": "0644917192"
   },
   {
     "name": "White Wine",
     "abv": 11.2,
     "desc": "Irsai Oliver",
-    "price": 1599
+    "price": 1599,
+    "id": "1703478881"
   },
   {
     "name": "Water",
     "desc": "watery",
     "abv": 0,
-    "price": 1
+    "price": 1,
+    "id": "4081972082"
   },
   {
     "name": "Cola",
     "desc": "coca",
     "abv": 0,
-    "price": 599
+    "price": 599,
+    "id": "5167380998"
   },
   {
     "name": "Codecool",
     "desc": "very cool very code",
     "abv": 99,
-    "price": 500
+    "price": 500,
+    "id": "2297146882"
+  },
+  {
+    "name": "test",
+    "desc": "test",
+    "abv": 12,
+    "price": 111
   }
 ]
