@@ -52,7 +52,7 @@ app.post('/data/new', (req, res) => {
   fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
     if (err) {
       console.log("error at reading file", err);
-      res.json("error at reading file");
+      res.status(500).json("error at reading file");
     } else {
       const jsonData = JSON.parse(data);
       const ids = jsonData.map(drinkObj => drinkObj.id)
@@ -70,14 +70,14 @@ app.post('/data/new', (req, res) => {
 
       jsonData.push(newDrinkObj);
 
-      fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(jsonData, null, 2), (err) => {
-        if (err) {
-          console.log("error at writing file", err);
-          res.status(500).json("error at writing file");
-        } else {
+      try {
+        fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(jsonData, null, 2), () => {
           res.json(newDrinkObj.id);
-        }
-      })
+        })
+      } catch (err) {
+        console.log("error at writing file", err);
+        res.status(500).json("error at writing file")
+      }
     }
   });
 });
