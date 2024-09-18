@@ -17,7 +17,7 @@ const generateId = () => {
   return newId;
 }
 
-const checkIfUnique = (arrayOfIds, newId) => {
+const isUnique = (arrayOfIds, newId) => {
   const result = arrayOfIds.find(id => id === newId);
   if (result === undefined) {
     return true;
@@ -25,34 +25,6 @@ const checkIfUnique = (arrayOfIds, newId) => {
     return false;
   }
 }
-
-const ids = [];
-
-fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
-  if (err) {
-    console.log("error at reading file");
-  } else {
-    const jsonData = JSON.parse(data);
-    jsonData.forEach(drinkObj => {
-      let newId = generateId(); // 6826736341
-
-      while (checkIfUnique(ids, newId) === false) {
-        newId = generateId(); 
-      } // after "while" is finished, newId must be unique
-      
-      drinkObj.id = newId;
-      ids.push(newId);
-    })
-
-    fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(jsonData, null, 2), err => {
-      if (err) {
-        console.log("error at writing file", err)
-      } else {
-        console.log("all objects id has been updated")
-      }
-    })
-  }
-})
 
 app.use(express.json());
 
@@ -83,15 +55,27 @@ app.post('/data/new', (req, res) => {
       res.json("error at reading file");
     } else {
       const jsonData = JSON.parse(data);
+      const ids = jsonData.map(drinkObj => drinkObj.id)
+      
+      let newId = generateId();
 
-      jsonData.push(req.body);
+      while (isUnique(ids, newId) === false) {
+        newId = generateId();
+      }
+
+      //itt már tuti egyedi a newId
+
+      const newDrinkObj = req.body;
+      newDrinkObj.id = newId;
+
+      jsonData.push(newDrinkObj);
 
       fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(jsonData, null, 2), (err) => {
         if (err) {
           console.log("error at writing file", err);
           res.status(500).json("error at writing file");
         } else {
-          res.json("success");
+          res.json(newDrinkObj.id);
         }
       })
     }
