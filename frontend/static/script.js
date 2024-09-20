@@ -1,5 +1,3 @@
-console.log("loaded");
-
 const drinkCard = (drinkData) => `
   <div class="drink">
     <h2>${drinkData.name}</h2>
@@ -42,16 +40,12 @@ fetch("/data")
     formElement.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      console.log("event trigger");
-
       const newDrinkData = {
         name: getInputValue("name"),
         desc: getInputValue("desc"),
         abv: Number(getInputValue("abv")),
         price: Number(getInputValue("price"))
       }
-
-      console.log(newDrinkData);
 
       fetch('/data/new', {
         method: 'POST',
@@ -62,9 +56,9 @@ fetch("/data")
       })
         .then(res => {
           if (res.status === 500) {
-            throw new Error("error at writing file")
+            throw new Error(res.json());
           }
-          return res.json()
+          return res.json();
         })
         .then(resData => {
           newDrinkData.id = resData;

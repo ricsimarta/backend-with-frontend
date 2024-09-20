@@ -49,6 +49,8 @@ app.get('/data', (req, res) => {
 app.post('/data/new', (req, res) => {
   console.log(req.body);
 
+  //should check the incoming data for missing values
+
   fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
     if (err) {
       console.log("error at reading file", err);
@@ -76,7 +78,7 @@ app.post('/data/new', (req, res) => {
         })
       } catch (err) {
         console.log("error at writing file", err);
-        res.status(500).json("error at writing file")
+        res.status(500).json("error at writing file");
       }
     }
   });
