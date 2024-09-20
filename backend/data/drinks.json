@@ -1,12 +1,5 @@
 [
   {
-    "name": "Dreher",
-    "price": 349,
-    "desc": "dreher beer",
-    "abv": 5,
-    "id": "1013459657"
-  },
-  {
     "name": "Kőbányai",
     "price": 329,
     "desc": "kőbányai beer",
@@ -43,93 +36,9 @@
   },
   {
     "name": "White Wine",
+    "desc": "irsai oliver",
     "abv": 11.2,
-    "desc": "Irsai Oliver",
-    "price": 1599,
-    "id": "0849180302"
-  },
-  {
-    "name": "Water",
-    "desc": "watery",
-    "abv": 0,
-    "price": 1,
-    "id": "3310483070"
-  },
-  {
-    "name": "Cola",
-    "desc": "coca",
-    "abv": 0,
-    "price": 599,
-    "id": "1558535339"
-  },
-  {
-    "name": "Codecool",
-    "desc": "very cool very code",
-    "abv": 99,
-    "price": 500,
-    "id": "6518003467"
-  },
-  {
-    "name": "test",
-    "desc": "test test",
-    "abv": 11,
-    "price": 1234,
-    "id": "5976266461"
-  },
-  {
-    "name": "test ketto",
-    "desc": "test test ketto",
-    "abv": 2,
-    "price": 22,
-    "id": "3313731239"
-  },
-  {
-    "name": "test ketto",
-    "desc": "test test ketto",
-    "abv": 2,
-    "price": 22,
-    "id": "2267646150"
-  },
-  {
-    "name": "test ketto",
-    "desc": "test test ketto",
-    "abv": 2,
-    "price": 22,
-    "id": "8885430259"
-  },
-  {
-    "name": "test ketto",
-    "desc": "test test ketto",
-    "abv": 2,
-    "price": 22,
-    "id": "3690940652"
-  },
-  {
-    "name": "test ketto",
-    "desc": "test test ketto",
-    "abv": 2,
-    "price": 22,
-    "id": "1765514093"
-  },
-  {
-    "name": "new",
-    "desc": "new",
-    "abv": 11,
-    "price": 11,
-    "id": "0652620192"
-  },
-  {
-    "name": "qwe",
-    "desc": "qwe",
-    "abv": 123,
-    "price": 123,
-    "id": "2128920984"
-  },
-  {
-    "name": "enter test",
-    "desc": "entertest",
-    "abv": 99,
-    "price": 999,
-    "id": "4770723201"
+    "price": 1199,
+    "id": "2267729945"
   }
 ]

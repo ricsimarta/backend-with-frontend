@@ -84,6 +84,34 @@ app.post('/data/new', (req, res) => {
   });
 });
 
+app.delete('/data/delete/:id', (req, res) => {
+  console.log(req.params.id);
+  const searchId = req.params.id;
+
+  //check if params id is valid value
+
+  fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
+    if (err) {
+      console.log("error at reading file", err);
+      res.status(500).json("error at reading file");
+    } else {
+      const jsonData = JSON.parse(data);
+
+      const foundObj = jsonData.find(obj => obj.id === searchId);
+
+      if (foundObj) {
+        const filteredArray = jsonData.filter(obj => obj.id !== searchId);
+        
+        fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(filteredArray, null, 2), () => {
+          res.status(200).json(searchId);
+        })
+      } else {
+        res.status(404).json(`${searchId} is not found`)
+      }
+    }
+  })
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
