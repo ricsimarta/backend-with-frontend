@@ -38,7 +38,7 @@ app.get('/data', (req, res) => {
   fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
     if (err) {
       console.log("error at reading file");
-      res.json("error at reading file");
+      res.status(500).json("error at reading file");
     } else {
       const jsonData = JSON.parse(data);
       res.json(jsonData);
@@ -90,11 +90,11 @@ app.delete('/data/delete/:id', (req, res) => {
 
   //check if params id is valid value
 
-  fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => {
-    if (err) {
+  fs.readFile(`${__dirname}/data/drinks.json`, (err, data) => { // create fn
+    if (err) { // create fn
       console.log("error at reading file", err);
       res.status(500).json("error at reading file");
-    } else {
+    } else { // create fn
       const jsonData = JSON.parse(data);
 
       const foundObj = jsonData.find(obj => obj.id === searchId);
@@ -104,7 +104,7 @@ app.delete('/data/delete/:id', (req, res) => {
         
         fs.writeFile(`${__dirname}/data/drinks.json`, JSON.stringify(filteredArray, null, 2), () => {
           res.status(200).json(searchId);
-        })
+        }) // create fn
       } else {
         res.status(404).json(`${searchId} is not found`)
       }

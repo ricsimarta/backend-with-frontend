@@ -28,17 +28,45 @@
     "id": "1904818988"
   },
   {
-    "name": "Red Wine",
-    "abv": 12,
-    "desc": "placeholder",
-    "price": 1239,
-    "id": "4822044495"
+    "name": "test drink",
+    "desc": "testing",
+    "abv": 1,
+    "price": 1199,
+    "id": "6459219171"
   },
   {
-    "name": "White Wine",
-    "desc": "irsai oliver",
-    "abv": 11.2,
-    "price": 1199,
-    "id": "2267729945"
+    "name": "test drink2",
+    "desc": "testinging",
+    "abv": 299,
+    "price": 2999,
+    "id": "5202315366"
+  },
+  {
+    "name": "slow fetch test",
+    "desc": "dasdasddasdasdas",
+    "abv": 199,
+    "price": 9999,
+    "id": "9550617766"
+  },
+  {
+    "name": "slow fetch test2",
+    "desc": "dpkqwjduioqwhduiqw",
+    "abv": 299,
+    "price": 99,
+    "id": "6170353113"
+  },
+  {
+    "name": "slow fetch test3",
+    "desc": "cdqwdjkqwhdjk",
+    "abv": 12312,
+    "price": 897897,
+    "id": "8985256729"
+  },
+  {
+    "name": "4892367489",
+    "desc": "89738924789",
+    "abv": null,
+    "price": 347623784,
+    "id": "4313743238"
   }
 ]

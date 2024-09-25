@@ -1,10 +1,12 @@
-const drinkCard = (drinkData) => `
+const rootElement = document.querySelector("#root");
+
+const drinkCard = ({ name, id, abv, desc, price }) => `
   <div class="drink">
-    <h2>${drinkData.name}</h2>
-    <h3>${drinkData.id}</h3>
-    <p class="drink-abv">${drinkData.abv}%</p>
-    <p class="drink-desc">${drinkData.desc}</p>
-    <p class="drink-price">${drinkData.price} HUF</p>
+    <h2>${name}</h2>
+    <h3>${id}</h3>
+    <p class="drink-abv">${abv}%</p>
+    <p class="drink-desc">${desc}</p>
+    <p class="drink-price">${price} HUF</p>
     <button class="delete">delete</button>
   </div>
 `;
@@ -22,74 +24,71 @@ const newDrinkElement = () => `
   </form>
 `;
 
-const getInputValue = (name) => document.querySelector(`input[name="drink-${name}"]`).value
+// takes "name" as argument, that is the value of the name HTML attribute of the input HTML element
+// returns the value of the found input element
+const getInputValue = (name) => document.querySelector(`input[name="drink-${name}"]`).value;
 
-fetch("/data")
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    let drinksData = data;
+const getDrinksData = () => fetch('/data').then(res => res.json());
 
-    let drinksHtml = "";
+const addNewDrink = (newDrinkData) => fetch('/data/new', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newDrinkData) }).then(res => res.json());
 
-    drinksData.forEach(drinkData => drinksHtml += drinkCard(drinkData));
+const deleteDrink = (drinkId) => fetch(`/data/delete/${drinkId}`, { method: 'DELETE' }).then(res => res.json());
 
-    const rootElement = document.querySelector("#root");
-    rootElement.insertAdjacentHTML("beforeend", `<div class="drinks">${drinksHtml}</div>`);
+const addHtml = (element, html) => element.insertAdjacentHTML("beforeend", html);
 
-    const buttonElements = document.querySelectorAll('button.delete');
-    console.log(buttonElements);
-    buttonElements.forEach(button => button.addEventListener("click", () => {
-      const buttonContainer = button.parentElement;
-      const searchId = buttonContainer.querySelector("h3").innerHTML;
-      console.log(searchId);
+const handleButtonClick = (button) => {
+  const buttonContainer = button.parentElement;
+  const searchId = buttonContainer.querySelector("h3").innerHTML;
 
-      fetch(`/data/delete/${searchId}`, { method: 'DELETE' })
-        .then(res => res.json())
-        .then(resData => {
-          if (resData === searchId) {
-            buttonContainer.remove();
-            const filteredData = drinksData.filter(drinkData => drinkData.id !== searchId);
-            drinksData = filteredData;
-            drinksHtml = "";
-            drinksData.forEach(drinkData => drinksHtml += drinkCard(drinkData));
-          }
-        })
-    }))
+  deleteDrink(searchId)
+    .then(() => recreateDom(rootElement))
+}
 
-    rootElement.insertAdjacentHTML("beforeend", newDrinkElement());
-    const formElement = document.querySelector("form");
-    formElement.addEventListener("submit", (event) => {
-      event.preventDefault();
+const createButtonClickEvents = (buttonList, handleButtonClick) => {
+  buttonList.forEach(button => button.addEventListener("click", () => handleButtonClick(button)))
+}
 
-      const newDrinkData = {
-        name: getInputValue("name"),
-        desc: getInputValue("desc"),
-        abv: Number(getInputValue("abv")),
-        price: Number(getInputValue("price"))
-      }
+const createFormSubmitEvent = (form, handleSubmit) => form.addEventListener("submit", event => handleSubmit(event))
 
-      fetch('/data/new', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newDrinkData)
-      })
-        .then(res => {
-          if (res.status === 500) {
-            throw new Error(res.json());
-          }
-          return res.json();
-        })
-        .then(resData => {
-          newDrinkData.id = resData;
-          drinksHtml += drinkCard(newDrinkData);
-          const drinksContainerElement = document.querySelector("div.drinks");
-          drinksContainerElement.innerHTML = drinksHtml;
-        })
-        .catch(err => {
-          console.log(err)
-        }) 
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const newDrinkData = {
+    name: getInputValue("name"),
+    desc: getInputValue("desc"),
+    abv: Number(getInputValue("abv")),
+    price: Number(getInputValue("price"))
+  }
+
+  addNewDrink(newDrinkData)
+    .then(() => recreateDom(rootElement))
+    .catch(err => {
+      console.log("fetchData", err)
     })
-  })
+}
+
+const recreateDom = (rootElement) => {
+  rootElement.innerHTML = "loading";
+  
+  getDrinksData()
+    .then(drinks => {
+      rootElement.innerHTML = "";
+    
+      const drinksHtml = drinks.map(drinkObj => drinkCard(drinkObj)).join("");
+
+      addHtml(rootElement, `<div class="drinks">${drinksHtml}</div>`);
+      addHtml(rootElement, newDrinkElement());
+
+      const buttonElements = document.querySelectorAll('button.delete');
+      createButtonClickEvents(buttonElements, handleButtonClick);
+
+      const formElement = document.querySelector("form");
+      createFormSubmitEvent(formElement, handleSubmit)
+    })
+}
+
+const init = () => recreateDom(rootElement);
+
+init();
+
+// crate init fn
