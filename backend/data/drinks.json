@@ -35,38 +35,24 @@
     "id": "6459219171"
   },
   {
-    "name": "test drink2",
-    "desc": "testinging",
-    "abv": 299,
-    "price": 2999,
-    "id": "5202315366"
+    "name": "promise test",
+    "desc": "test",
+    "abv": 11,
+    "price": 1111,
+    "id": "2697493904"
   },
   {
-    "name": "slow fetch test",
-    "desc": "dasdasddasdasdas",
-    "abv": 199,
-    "price": 9999,
-    "id": "9550617766"
+    "name": "new unique test",
+    "desc": "test",
+    "abv": 11,
+    "price": 11111,
+    "id": "7477319102"
   },
   {
-    "name": "slow fetch test2",
-    "desc": "dpkqwjduioqwhduiqw",
-    "abv": 299,
-    "price": 99,
-    "id": "6170353113"
-  },
-  {
-    "name": "slow fetch test3",
-    "desc": "cdqwdjkqwhdjk",
-    "abv": 12312,
-    "price": 897897,
-    "id": "8985256729"
-  },
-  {
-    "name": "4892367489",
-    "desc": "89738924789",
-    "abv": null,
-    "price": 347623784,
-    "id": "4313743238"
+    "name": "new test 101",
+    "desc": "százegy",
+    "abv": 101,
+    "price": 101,
+    "id": "5213760496"
   }
 ]

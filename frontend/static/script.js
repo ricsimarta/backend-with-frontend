@@ -48,7 +48,7 @@ const createButtonClickEvents = (buttonList, handleButtonClick) => {
   buttonList.forEach(button => button.addEventListener("click", () => handleButtonClick(button)))
 }
 
-const createFormSubmitEvent = (form, handleSubmit) => form.addEventListener("submit", event => handleSubmit(event))
+const createFormSubmitEvent = (form, handleSubmit) => form.addEventListener("submit", event => handleSubmit(event));
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -90,5 +90,3 @@ const recreateDom = (rootElement) => {
 const init = () => recreateDom(rootElement);
 
 init();
-
-// crate init fn
