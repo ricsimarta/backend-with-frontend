@@ -28,31 +28,17 @@
     "id": "1904818988"
   },
   {
-    "name": "test drink",
-    "desc": "testing",
-    "abv": 1,
+    "name": "new drink",
+    "desc": "test",
+    "abv": 11,
     "price": 1199,
-    "id": "6459219171"
+    "id": "9772200811"
   },
   {
-    "name": "promise test",
-    "desc": "test",
+    "name": "new drink",
+    "desc": "testing",
     "abv": 11,
-    "price": 1111,
-    "id": "2697493904"
-  },
-  {
-    "name": "new unique test",
-    "desc": "test",
-    "abv": 11,
-    "price": 11111,
-    "id": "7477319102"
-  },
-  {
-    "name": "new test 101",
-    "desc": "százegy",
-    "abv": 101,
-    "price": 101,
-    "id": "5213760496"
+    "price": 1199,
+    "id": "8124977567"
   }
 ]
