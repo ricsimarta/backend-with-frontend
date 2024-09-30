@@ -1,7 +1,7 @@
 [
   {
     "name": "Kőbányai",
-    "price": 329,
+    "price": 359,
     "desc": "kőbányai beer",
     "abv": 4,
     "id": "4467891775"
@@ -10,15 +10,8 @@
     "name": "Pálinka",
     "price": 3999,
     "desc": "hungarian pálinka",
-    "abv": 45,
+    "abv": 50,
     "id": "2391343568"
-  },
-  {
-    "name": "Whiskey",
-    "price": 4999,
-    "desc": "scotch",
-    "abv": 40,
-    "id": "0518352560"
   },
   {
     "name": "Tequila",
@@ -40,5 +33,12 @@
     "abv": 11,
     "price": 1199,
     "id": "8124977567"
+  },
+  {
+    "name": "Whiskey",
+    "price": 5999,
+    "desc": "irish wishkey",
+    "abv": 420,
+    "id": "0518352560"
   }
 ]
