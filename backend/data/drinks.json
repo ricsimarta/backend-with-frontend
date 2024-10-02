@@ -21,24 +21,24 @@
     "id": "1904818988"
   },
   {
-    "name": "new drink",
-    "desc": "test",
-    "abv": 11,
-    "price": 1199,
-    "id": "9772200811"
-  },
-  {
-    "name": "new drink",
-    "desc": "testing",
-    "abv": 11,
-    "price": 1199,
-    "id": "8124977567"
-  },
-  {
     "name": "Whiskey",
-    "price": 5999,
+    "price": 4499,
     "desc": "irish wishkey",
     "abv": 420,
     "id": "0518352560"
+  },
+  {
+    "name": "Pálinka",
+    "desc": "hungarian pálinka",
+    "abv": 50,
+    "price": 3999,
+    "id": "8930771781"
+  },
+  {
+    "name": "Pálinka",
+    "price": "39999",
+    "desc": "hungarian málna pálinka",
+    "abv": "51",
+    "id": "0593417586"
   }
 ]
